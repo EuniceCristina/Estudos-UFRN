@@ -4,65 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body{
-            background-color: rgb(7, 93, 190) ;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            font-weight: bold;
-            
-        }
-        main{
-            width: 50%;
-            height: 90%;
-            background-color: white;
-            margin-top: 10%;
-            padding: 5%;
-            border-radius: 20Px;
-            
-            
-            
-            
-        }
-        main h1{
-            color: blue;
-            
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            border-bottom: 1pX SOLID GREY;
-            padding-bottom: 10px;
-            margin-top: 5%;
-            
-        }
-        form input,button{
-            width: 80%;
-            padding: 10px;
-            border: 1px solid grey;
-            border-radius: 6px;
-            margin-bottom: 3%;
-        }
-        button{
-            width: 83%;
-            background-color: red;
-            color: white;
-            border: none;
-            
-        }
-        .caixa{
-            margin-bottom: 15%;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <main>
         <h1>
             Conversor Binário
         </h1>
-        <form method="POST" action="{{url_for('/index')}}">
+        <form method="POST" action="{{url_for('index')}}">
             <input type="text" id="numero" name="numero" placeholder="Digite um número binário">
             <button>Converter para decimal</button>
         </form>
@@ -70,7 +19,8 @@
             {%if not bin%}
                 <h4>Resultado aparecerá aqui</h4>
             {%else%}
-                <h4>Seu número em binário é igual à : <p style="color: red;">{{bin}}</p></h4>
+                <div class="resp"><h4>Seu número em binário é igual à :  </h4><p style="color: green;">{{bin}}</p></div>
+            {%endif%}
         </div>
     </main>
 </body>
