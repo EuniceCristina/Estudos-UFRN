@@ -11,7 +11,7 @@ body{
             width: 50%;
             height: 90%;
             background-color: white;
-            margin-top: 10%;
+            margin-top: 5%;
             padding: 5%;
             border-radius: 20Px;
             
@@ -20,9 +20,12 @@ body{
             
         }
         main h1{
+           
+            align-self: center;
             color: blue;
             
         }
+        
         form {
             display: flex;
             flex-direction: column;
@@ -31,19 +34,26 @@ body{
             margin-top: 5%;
             
         }
-        form input,button{
+        form input,button,select{
             width: 80%;
             padding: 10px;
             border: 1px solid grey;
             border-radius: 6px;
             margin-bottom: 3%;
         }
-        button{
+        form button,select{
             width: 83%;
+        }
+        form button{
+            
             background-color: red;
             color: white;
             border: none;
+            font-weight: bolder;
             
+        }
+        form label{
+            color: gray;
         }
         .resp{
             display: flex;
@@ -53,6 +63,6 @@ body{
             padding: 5px;
         }
         .caixa{
-            margin-bottom: 15%;
+            margin-bottom: 5%;
             
         }

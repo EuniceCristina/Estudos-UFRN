@@ -9,17 +9,25 @@
 <body>
     <main>
         <h1>
-            Conversor Binário
+            Conversor de Bases Númericas
         </h1>
         <form method="POST" action="{{url_for('index')}}">
-            <input type="text" id="numero" name="numero" placeholder="Digite um número binário">
-            <button>Converter para decimal</button>
+            <label for="numero">Digite um número em decimal</label>
+            <input type="text" id="numero" name="numero" placeholder="#">
+            <label for="base">Selecione a base em que deseja calcular</label>
+            <select name="base" id="base">
+                {%for i in range(0,15)%}
+                <option value={{i}}>{{i}}</option>
+                {%endfor%}
+            </select>
+    
+            <button>Converter </button>
         </form>
         <div class="caixa">
-            {%if not bin%}
+            {%if not res%}
                 <h4>Resultado aparecerá aqui</h4>
             {%else%}
-                <div class="resp"><h4>Seu número em binário é igual à :  </h4><p style="color: green;">{{bin}}</p></div>
+                <div class="resp"><h4>Seu número em base {{base}} é igual à :  </h4><p style="color: green;">{{res}}</p></div>
             {%endif%}
         </div>
     </main>

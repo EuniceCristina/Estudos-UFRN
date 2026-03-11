@@ -6,18 +6,26 @@ app.secret_key = "projetoinformatica"
 @app.route("/", methods=["GET","POST"])
 def index():
     numero = request.form.get("numero")
+    base = request.form.get("base")
     num = 0
-    bin = []
-    if numero:
+    res = []
+    resultado = ""
+    if numero and base:
         num = int(numero)
+        base = int(base)
+        
     if request.method == "POST":
         
        
         while num >=1:
-            resto = num % 2
-            bin.insert(0, resto)
-            num = num // 2
-    return render_template("index.html",bin=bin)
+            resto = num % base
+            res.insert(0, resto)
+            
+            
+            num = num // base
+        for i in res:
+                resultado += str(i)
+    return render_template("index.html",res=resultado, base=base)
 
 if (__name__) == '__main__':
     app.run(debug=True)
