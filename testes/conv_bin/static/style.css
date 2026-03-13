@@ -1,18 +1,19 @@
 body{
-            background-color: rgb(7, 93, 190) ;
+            background-color: rgb(5, 110, 230) ;
             display: flex;
             align-items: center;
             justify-content: center;
+            
             height: 100%;
             font-weight: bold;
             
         }
         main{
-            width: 50%;
-            height: 90%;
+            width: 25%;
+            height: auto;
             background-color: white;
-            margin-top: 5%;
-            padding: 5%;
+            margin-top: 10%;
+            padding: 3%;
             border-radius: 20Px;
             
             
@@ -42,7 +43,7 @@ body{
             margin-bottom: 3%;
         }
         form button,select{
-            width: 83%;
+            width: 84%;
         }
         form button{
             
@@ -64,5 +65,6 @@ body{
         }
         .caixa{
             margin-bottom: 5%;
+            
             
         }
