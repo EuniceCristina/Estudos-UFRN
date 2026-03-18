@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 
 def ver_produto(request):
-    return render(request,'ver_produto.html')
+    return render(request,'ver_produto.html',{'nome':"Eunice"})
 
 def inserir_produto(request):
     return HttpResponse('Inserindo produto')
