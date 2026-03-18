@@ -1,13 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/produtos/css/style.css">
+    <link rel="stylesheet" href="{% static 'produtos/css/style.css' %}">
     <title>Document</title>
 </head>
 <body>
     <h1>Veja seus produtos</h1>
-    <p>Olá {{nome}}</p>
+    <p>Olá {{nome}} .</p>
+    <div class="img">
+        <img src="{% static 'produtos/img/image.png' %}" alt="">
+    </div>
+    <form action="{% url 'ver_produto' %}" method="POST">{% csrf_token %} 
+        <input type="text" name="numero" placeholder="Digite seu numero">
+        <input type="number" name="valor" placeholder="Informe seu valor">
+        <button>Enviar</button>
+
+    </form>
+    {%if numero%}
+    <p>Seu número é {{numero}}</p>
+    {%endif%}
 </body>
 </html>
