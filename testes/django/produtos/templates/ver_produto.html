@@ -14,13 +14,13 @@
         <img src="{% static 'produtos/img/image.png' %}" alt="">
     </div>
     <form action="{% url 'ver_produto' %}" method="POST">{% csrf_token %} 
-        <input type="text" name="numero" placeholder="Digite seu numero">
-        <input type="number" name="valor" placeholder="Informe seu valor">
+        <input type="text" name="nome" placeholder="Digite seu nome">
+        <input type="number" name="idade" placeholder="Informe seu idade">
         <button>Enviar</button>
 
     </form>
-    {%if numero%}
-    <p>Seu número é {{numero}}</p>
+    {%if idade%}
+    <p>Seu número é {{idade}}</p>
     {%endif%}
 </body>
 </html>
