@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <header>
+            ListCheck
+        </header>
+        <p><a href="../criar_tarefa">Criar tarefa</a></p>
+        <div class="tarefas">
+            {%if tarefas %}
+                {%for tarefa in tarefas%}
+                    <div class="tarefa">
+                        <div>
+                            Nome: {{tarefa.nome}}
+                            Descrição : {{tarefa.descricao}}
+                            Status : {{tarefa.status}}
+                            {%if tarefa.status == False%}
+                            <form action="{% url 'concluir_tarefa' tarefa.id %}" method="POST">{% csrf_token %}
+                                <button>✔️</button></form>
+                            {%endif%}
+                            <form action="{% url 'excluir_tarefa' tarefa.id %}" method="POST">{% csrf_token %}
+                                <button>🗑️</button></form>
+                            <form action="{% url 'ver_tarefa' tarefa.id %}" method="POST">{% csrf_token %}<button>Ver tarefa</button></form>
+                            
+                        </div>
+                    </div>
+                {%endfor%}
+            {%endif%}
+        </div>
+    </main>
+</body>
+</html>
