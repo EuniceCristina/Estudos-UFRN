@@ -1,12 +1,15 @@
-from django.shortcuts import render,redirect, get_object_or_404
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+
 from .models import Tarefa
-from datetime import date 
+from projeto_tarefas.serializer import TarefaSerializer
 
-
+@api.view(["GET","POST"])
 def listar_tarefas(request):
     if request.method=="GET":
-        tarefas = Tarefa.objects.all()
-        return render(request,"tarefa.html",{'tarefas':tarefas})
+        tarefas = TarefaSerializer(tarefas,many=True)
+        return Response(request,"tarefa.html",{'tarefas':tarefas})
 
 def criar_tarefa(request):
     if request.method=="GET":
