@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class Pessoa(models.Model):
     nome = models.CharField()
+    senha = models.CharField(max_length=255)
     idade = models.IntegerField()
     
     def __str__(self)->str:
