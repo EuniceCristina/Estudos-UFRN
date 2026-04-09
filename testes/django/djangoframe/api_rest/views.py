@@ -6,50 +6,50 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
-from .models import User
-from .serializers import UserSerializer
+from .models import Tarefa
+from .serializers import TarefaSerializer
 import json
 
 @api_view(['GET'])
-def get_users(request):
+def get_works(request):
     if request.method == 'GET':
-        users = User.objects.all()
-        serializer = UserSerializer(users,many=True)
+        tarefas = Tarefa.objects.all()
+        serializer = TarefaSerializer(tarefas,many=True)
         return Response(serializer.data)
     return Response(status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
-def get_by_nick(request, nick):
+def get_by_title(request, titulo):
     try:
-        user = User.objects.get(pk=nick)
+        tarefa = Tarefa.objects.get(titulo=titulo)
     except:
         return Response(status=status.HTTP_404_NOT_FOUND)
     
     if request.method == 'GET':
-        serializer = UserSerializer(user)
+        serializer = TarefaSerializer(tarefa)
         return Response(serializer.data)
     
 @api_view(['GET','POST','PUT','DELETE'])
-def user_manager(request):
+def work_manager(request):
     if request.method=='GET':
             try:
-                user_nickname = request.GET["user"]
+                titulo = request.GET["titulo"]
 
 
                 try:
-                    user = User.objects.get(pk=user_nickname)
+                    tarefa = Tarefa.objects.get(titulo=titulo)
                 except:
                     return Response(status=status.HTTP_404_NOT_FOUND)
-                serializer = UserSerializer(user)
+                serializer = TarefaSerializer(tarefa)
                 return Response(serializer.data)
             except:
                 return Response(status=status.HTTP_404_NOT_FOUND)
             
     
     if request.method=='POST':
-        new_user = request.data
+        new_work = request.data
 
-        serializer = UserSerializer(data=new_user)
+        serializer = TarefaSerializer(data=new_work)
 
         if serializer.is_valid():
             serializer.save()
@@ -57,12 +57,12 @@ def user_manager(request):
         return Response(status=status.HTTP_400_BAD_REQUEST)
     
     if request.method == 'PUT':
-        nickname = request.data['user_nickname']
-        updated_user = User.objects.get(pk=nickname)
+        titulo = request.data['titulo']
+        updated_user = Tarefa.objects.get(titulo=titulo)
 
         print(request.data)
 
-        serializer = UserSerializer(updated_user, data=request.data)
+        serializer = TarefaSerializer(updated_user, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_202_ACCEPTED)

@@ -3,11 +3,11 @@ from django.http import HttpResponse
 from .models import Pessoa
 
 
-def ver_produto(request):
+def ver_user(request):
     
     if request.method=="GET":
 
-        return render(request,'ver_produto.html',{'nome':"Eunice"})
+        return render(request,'ver_user.html',{'nome':"Eunice"})
     elif request.method=="POST":
         nome = request.POST.get('nome')
         idade = request.POST.get('idade')
@@ -18,7 +18,7 @@ def ver_produto(request):
         if pessoa1.exists():
             print(pessoa1)
         print(pessoas[0].idade)
-        return render(request,'ver_produto.html',{'nome':nome,'idade':idade})
-def inserir_produto(request):
+        return render(request,'ver_user.html',{'nome':nome,'idade':idade})
+def inserir_user(request):
     return HttpResponse('Inserindo produto')
         

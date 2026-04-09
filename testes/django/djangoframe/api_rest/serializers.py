@@ -1,8 +1,8 @@
 from rest_framework import serializers
 
-from .models import User,UserTaks
+from .models import Tarefa
 
-class UserSerializer(serializers.ModelSerializer):
+class TarefaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = Tarefa
         fields = "__all__"
