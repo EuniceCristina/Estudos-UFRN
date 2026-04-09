@@ -40,14 +40,16 @@
                 {% endif %}
                 <td>
                     <form action="{% url 'tarefas:excluir_tarefa' tarefa.id %}" method="POST">{%csrf_token%}
-                        <button>Excluir</button>
+                        <button>🗑️</button>
                     </form>
                 </td>
+                {%if tarefa.status != 'C' %}
                 <td>
                     <form action="{% url 'tarefas:concluir_tarefa' tarefa.id %}" method="POST">{%csrf_token%}
-                        <button>Concluir</button>
+                        <button>✔</button>
                     </form>
                 </td>
+                {%endif%}
                 
             </tr>
             {%endfor%}

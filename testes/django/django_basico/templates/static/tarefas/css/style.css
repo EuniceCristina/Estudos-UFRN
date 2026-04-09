@@ -4,10 +4,10 @@ body{
 }
 
 .main{
-    width: 40%;
+    width: 35%;
     height: auto;
     padding: 2%;
-    padding-bottom: 4%;
+    padding-bottom: 8%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,7 +16,7 @@ body{
     border-radius: 20px;
     align-self: center;
     margin-left: 30%;
-    margin-top: 10%;
+    margin-top: 12%;
     background-color: #f6d659;
     
     
@@ -35,18 +35,30 @@ header form{width: 30%; margin-left: 79%;}
 }
 
 table {
-    
+    width: 95%;
     padding: 1%;
 }
 table td, table tr{
     padding-left: 10px;
 }
 
+table button{
+    background-color:#f6d659 ;
+    
+}
+
 .main button.add {
    padding: 5%;
    border-radius: 10px;
+   
+   
+}
+button{
    border: none;
    background-color: #f6d659;
-   box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-   
+   box-shadow: 0 8px 25px rgba(0,0,0,0.3); 
+}
+button:hover{
+    filter: brightness(0.5);
+ 
 }
