@@ -1,12 +1,52 @@
+body{
+    background-color: rgb(248, 248, 200);
+    font-family: 'Poppins', sans-serif;
+}
+
 .main{
     width: 40%;
+    height: auto;
+    padding: 2%;
+    padding-bottom: 4%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border: 1px solid;
+    border: 7px solid white;
+    border-radius: 20px;
     align-self: center;
     margin-left: 30%;
     margin-top: 10%;
+    background-color: #f6d659;
+    
+    
+}
+header{
+    width: 100%;
+    
+    
+}
+header form{width: 30%; margin-left: 79%;}
 
+
+
+.main h1, table tr th{
+    color: white;
+}
+
+table {
+    
+    padding: 1%;
+}
+table td, table tr{
+    padding-left: 10px;
+}
+
+.main button.add {
+   padding: 5%;
+   border-radius: 10px;
+   border: none;
+   background-color: #f6d659;
+   box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+   
 }

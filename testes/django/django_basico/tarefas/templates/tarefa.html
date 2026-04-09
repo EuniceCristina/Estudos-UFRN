@@ -8,17 +8,58 @@
     <link rel="stylesheet" href="{% static 'tarefas/css/style.css' %}">
 </head>
 <body>
+    
     <div class="main">
-    <h1>Tarefas</h1>
-    {%for tarefa in tarefas%}
-    <div class="tarefa">
-        <ul style="list-style-type: none;">
-            <li>{{tarefa.nome}}</li>
-        </ul>
-    </div>
-    {%endfor%}
-    <form action="{% url 'tarefas:tarefa_create' %}"> {% csrf_token %}
-        <button>Adcionar Tarefas</button></form>
+    <header>
+        
+        <form action="{% url 'tarefas:tarefa_create' %}"> {% csrf_token %}
+        <button class="add">Add +</button>
+    </form>
+    </header>
+    <h1>To-do-list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Prazo</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for tarefa in tarefas%}
+            <tr>
+                <td id="titulo">{{tarefa.nome}}</td>
+                <td>{{tarefa.prazo}}</td>
+                {% if tarefa.status == 'A' %}
+                <td style="color: orange;">Em andamento</td>
+                {% elif tarefa.status == "P" %}
+                <td style="color: red;">Pendente</td>
+                {% else %}
+                <td style="color: green;">Concluída</td>
+                {% endif %}
+                <td>
+                    <form action="{% url 'tarefas:excluir_tarefa' tarefa.id %}" method="POST">{%csrf_token%}
+                        <button>Excluir</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="{% url 'tarefas:concluir_tarefa' tarefa.id %}" method="POST">{%csrf_token%}
+                        <button>Concluir</button>
+                    </form>
+                </td>
+                
+            </tr>
+            {%endfor%}
+        </tbody>
+        
+            
+        
+    </table>
+        
+    
+    
+    
     </div>
 </body>
 </html>

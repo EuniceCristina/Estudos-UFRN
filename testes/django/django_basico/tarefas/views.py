@@ -16,15 +16,18 @@ def tarefa_create(request):
     if request.method=='GET':
         return render(request,'tarefa_create.html')
     elif request.method=='POST':
-        data = datetime.now()
+        data = datetime.now().date()
         nome = request.POST.get('nome')
         descricao = request.POST.get('descricao')
         prazo = request.POST.get('prazo')
         pessoa = Pessoa.objects.get(nome='Eunice')
-        lista_prazo = datetime.strptime(prazo, "%Y-%m-%d")
+        lista_prazo = datetime.strptime(prazo, "%Y-%m-%d").date()
+        print(lista_prazo.year)
+        print(data.day)
         status = 'P'
-        if lista_prazo <= data:
-                    status = 'A'
+        if lista_prazo >= data:
+            
+            status = 'A'
         
         try:
             tarefa = Tarefa(nome=nome,descricao=descricao,prazo=prazo,status=status,pessoa=pessoa)
@@ -33,6 +36,23 @@ def tarefa_create(request):
         except Exception as e:
             print(e)
             return redirect('tarefas:tarefa')
+        
+def excluir_tarefa(request,id):
+    if request.method=='POST':
+        tarefa = Tarefa.objects.filter(id=id).first()
+        if tarefa:
+            tarefa.delete()
+        return redirect('tarefas:tarefa')
+    
+def concluir_tarefa(request, id):
+    if request.method=='POST':
+        tarefa = Tarefa.objects.filter(id=id).first()
+        tarefa.status = 'C'
+        tarefa.save()
+        return redirect('tarefas:tarefa')
+        
+        
+    
              
         
 
