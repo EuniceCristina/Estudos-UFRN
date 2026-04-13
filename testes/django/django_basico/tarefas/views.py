@@ -9,8 +9,10 @@ from pessoas.models import Pessoa
 
 def tarefa(request):
     if request.method == 'GET':
-        tarefas = Tarefa.objects.all()
-        return render(request,'tarefa.html',{'tarefas':tarefas})
+        tarefa_A = Tarefa.objects.filter(status='A')
+        tarefa_P = Tarefa.objects.filter(status='P')
+        tarefa_C = Tarefa.objects.filter(status='C')
+        return render(request,'tarefa.html',{'tarefa_A':tarefa_A,'tarefa_P':tarefa_P,'tarefa_C':tarefa_C})
     
 def tarefa_create(request):
     if request.method=='GET':

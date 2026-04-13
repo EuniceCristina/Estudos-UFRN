@@ -19,46 +19,40 @@
     </header>
     
     <div class="main">
-        <table>
-        <thead>
-            <tr>
-                <th>Título</th>
-                <th>Prazo</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            {%for tarefa in tarefas%}
-            <tr>
-                <td id="titulo">{{tarefa.nome}}</td>
-                <td>{{tarefa.prazo}}</td>
-                {% if tarefa.status == 'A' %}
-                <td style="color: orange;">Em andamento</td>
-                {% elif tarefa.status == "P" %}
-                <td style="color: red;">Pendente</td>
-                {% else %}
-                <td style="color: green;">Concluída</td>
-                {% endif %}
-                <td>
-                    <form action="{% url 'tarefas:excluir_tarefa' tarefa.id %}" method="POST">{%csrf_token%}
-                        <button>🗑️</button>
-                    </form>
-                </td>
-                {%if tarefa.status != 'C' %}
-                <td>
-                    <form action="{% url 'tarefas:concluir_tarefa' tarefa.id %}" method="POST">{%csrf_token%}
-                        <button>✔</button>
-                    </form>
-                </td>
-                {%endif%}
-                
-            </tr>
-            {%endfor%}
-        </tbody>
-        
+        <div class="tarefas">
+            <div class="pendente">
+                <h3>Pendentes</h3>
+                 {%for tarefa in tarefa_P %}
+                <div class="tarefa">
+                    {{tarefa.nome}}
+                    {{tarefa.status}}
+                </div>
+                 {%endfor%}
+
+            </div>
+
+            <div class="andamento">
+                <h3>Em andamento</h3>
+                {%for tarefa in tarefa_A %}
+                <div class="tarefa">
+                    {{tarefa.nome}}
+                    {{tarefa.status}}
+                </div>
+                 {%endfor%}
+            </div>
+            <div class="concluida">
+                <h3>Concluídas</h3>
+                {%for tarefa in tarefa_C %}
+                <div class="tarefa">
+                    <p><b>Título : </b>{{tarefa.nome}}</p>
+                    <p><b>Status : </b>{{tarefa.status}}</p>
+                    
+                </div>
+                 {%endfor%}
+            </div>
             
-        
-    </table>
+            
+        </div>
     </div>
         
     
