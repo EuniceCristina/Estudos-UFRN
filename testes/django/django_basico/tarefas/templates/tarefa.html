@@ -9,16 +9,17 @@
 </head>
 <body>
     
-    <div class="main">
     <header>
-        
-        <form action="{% url 'tarefas:tarefa_create' %}"> {% csrf_token %}
-        <button class="add">Add +</button>
-    </form>
-    </header>
     <h1>To-do-list</h1>
+    <form action="{% url 'tarefas:tarefa_create' %}"> {% csrf_token %}
+    <button class="add">Add +</button>
+    </form>
+    
 
-    <table>
+    </header>
+    
+    <div class="main">
+        <table>
         <thead>
             <tr>
                 <th>Título</th>
@@ -58,10 +59,11 @@
             
         
     </table>
+    </div>
         
     
     
     
-    </div>
+   
 </body>
 </html>
