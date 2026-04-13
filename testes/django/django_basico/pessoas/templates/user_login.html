@@ -16,12 +16,17 @@
             <input type="password" name="senha" placeholder="Digite sua senha">
             <button>Enviar</button>
         </form>
-        <p>Ainda não tem conta? <a href="{% url 'pessoas:user_create' %}">Cadastra-se</a></p>
-        {% if error %}
-        <p style="color: red;">{{error}}
-        </p>
-        {%endif%}
+        
    </div>
+   <p>Ainda não tem conta? <a href="{% url 'pessoas:user_create' %}">Cadastra-se</a></p>
+        {% if error %}
+    <p style="color: red;">{{error}}
+    </p>
+        {%endif%}
+    </div>
+    <div class="main logo">
+        <h1>To-do-list</h1>
+        <img src="{% static 'pessoas/img/logo.png' %}" alt="">
     </div>
 </body>
 </html>
