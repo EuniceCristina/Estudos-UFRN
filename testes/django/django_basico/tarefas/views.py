@@ -12,6 +12,7 @@ def tarefa(request):
         tarefa_A = Tarefa.objects.filter(status='A')
         tarefa_P = Tarefa.objects.filter(status='P')
         tarefa_C = Tarefa.objects.filter(status='C')
+        #fazer exceção de erro
         return render(request,'tarefa.html',{'tarefa_A':tarefa_A,'tarefa_P':tarefa_P,'tarefa_C':tarefa_C})
     
 def tarefa_create(request):

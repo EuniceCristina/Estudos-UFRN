@@ -21,34 +21,69 @@
     <div class="main">
         <div class="tarefas">
             <div class="pendente">
+                {% if tarefa_P %}
                 <h3>Pendentes</h3>
-                 {%for tarefa in tarefa_P %}
+                {%for tarefa in tarefa_P %}
                 <div class="tarefa">
-                    {{tarefa.nome}}
-                    {{tarefa.status}}
+                    <p><b>Título : </b>{{tarefa.nome}}</p>
+                    <p><b>Status : </b>{{tarefa.status}}</p>
+                    <div class="acoes">
+                    <form action="{% url 'tarefas:excluir_tarefa' tarefa.id %}" method="POST">{%csrf_token%}
+                        <button>🗑️</button>
+                    </form>
+                    <form action="{% url 'tarefas:concluir_tarefa' tarefa.id %}" method="POST">{%csrf_token%}
+                        <button>✔</button>
+                    </form>
+                    </div>
                 </div>
                  {%endfor%}
+                 {%else%}
+                 <p>Nenhuma terefa em andamento.</p>
+                 {%endif%}
 
             </div>
 
             <div class="andamento">
                 <h3>Em andamento</h3>
+                {% if tarefa_A %}
                 {%for tarefa in tarefa_A %}
-                <div class="tarefa">
-                    {{tarefa.nome}}
-                    {{tarefa.status}}
+                <div class="tarefa" style="border-left: 5px solid orange;">
+                    <p><b>Título : </b>{{tarefa.nome}}</p>
+                    <p><b>Status : </b>{{tarefa.status}}</p>
+                    <div class="acoes">
+                    <form action="{% url 'tarefas:excluir_tarefa' tarefa.id %}" method="POST">{%csrf_token%}
+                        <button>🗑️</button>
+                    </form>
+                    <form action="{% url 'tarefas:concluir_tarefa' tarefa.id %}" method="POST">{%csrf_token%}
+                        <button>✔</button>
+                    </form>
+                    </div>
+
                 </div>
                  {%endfor%}
+                 {%else%}
+                 <p>Nenhuma terefa em andamento.</p>
+                 {%endif%}
+
             </div>
             <div class="concluida">
                 <h3>Concluídas</h3>
+                {% if tarefa_C %}
                 {%for tarefa in tarefa_C %}
-                <div class="tarefa">
+                <div class="tarefa" style="border-left: 5px solid green;">
                     <p><b>Título : </b>{{tarefa.nome}}</p>
                     <p><b>Status : </b>{{tarefa.status}}</p>
+                    <div class="acoes">
+                    <form action="{% url 'tarefas:excluir_tarefa' tarefa.id %}" method="POST">{%csrf_token%}
+                        <button>🗑️</button>
+                    </form>
+                    </div>
                     
                 </div>
                  {%endfor%}
+                 {%else%}
+                 <p>Nenhuma terefa concluida.</p>
+                 {%endif%}
             </div>
             
             

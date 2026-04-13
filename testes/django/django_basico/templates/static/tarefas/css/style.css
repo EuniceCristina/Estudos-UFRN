@@ -1,8 +1,7 @@
 body{
     background-color: rgb(248, 248, 200);
     font-family: 'Poppins', sans-serif;
-    padding: 2%;
-   
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,17 +11,18 @@ body{
 
 header{
     padding: 2%;
-
+    
     width: 100%;
     display: flex;
     height: 20%;
-   
+    margin-left: 5%;
     justify-content: space-between;
     align-items: center;
     
     
 }
 header h1{
+    font-size: 50px;
     color: #f66504;
 }
 header form{width: 30%;}
@@ -34,14 +34,13 @@ header button.add {
    border-radius: 10px;
    color: #f66504;
    font-weight: bold;
-   
-   
-}
-button{
    border: none;
    background-color: #f6d659;
    box-shadow: 0 8px 25px rgba(0,0,0,0.3); 
+   
+   
 }
+
 button:hover{
     filter: brightness(0.5);
  
@@ -75,6 +74,19 @@ button:hover{
     background-color: white;
     border-radius: 10px;
     border-left: 5px solid red;
+    margin-bottom: 5%;
+    
+}
+.tarefas .acoes{
+    width: 100%;
+    display: flex;
+}
+.tarefas .acoes button{
+    background-color: white;
+    border: none;
+    margin-left: 15%;
+
+    
 }
 
 
