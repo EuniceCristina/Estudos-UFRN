@@ -8,19 +8,23 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Cadastre-se</h1>
+    <div class="main">
+        <h1>Cadastre-se</h1>
     <!---<div class="img">
         <img src="{% static 'pessoas/img/image.png' %}" alt="">
     </div> -->
-    <form action="{% url 'pessoas:user_create' %}" method="POST">{% csrf_token %} 
-        <input type="text" name="nome" placeholder="Digite seu nome">
-        <input type="number" name="idade" placeholder="Informe seu idade">
-        <input type="password" name="senha" placeholder="Digite sua senha">
-        <button>Enviar</button>
+        <div class="form-login">
+            <form action="{% url 'pessoas:user_create' %}" method="POST">{% csrf_token %} 
+            <input type="text" name="nome" placeholder="Digite seu nome">
+            <input type="number" name="idade" placeholder="Informe seu idade">
+            <input type="password" name="senha" placeholder="Digite sua senha">
+            <button>Enviar</button>
 
-    </form>
-    <p>Já tem conta? <a href="{% url 'pessoas:user_login' %}">Faça seu login</a></p>
-    
+        </form>
+        </div>
+        <p>Já tem conta? <a href="{% url 'pessoas:user_login' %}">Faça seu login</a></p>
+        
+    </div>
     
 
     

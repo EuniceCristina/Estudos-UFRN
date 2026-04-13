@@ -10,16 +10,18 @@
 <body>
    <div class="main">
      <h1>Faça seu login</h1>
-    <form action="{% url 'pessoas:user_login' %}" method="POST">{% csrf_token %}
-        <input type="text" name="nome" placeholder="Digite seu nome">
-        <input type="password" name="senha" placeholder="Digite sua senha">
-        <button>Enviar</button>
-    </form>
-    <p>Ainda não tem conta? <a href="{% url 'pessoas:user_create' %}">Cadastra-se</a></p>
-    {% if error %}
-    <p style="color: red;">{{error}}
-    </p>
-    {%endif%}
+    <div class="form-login">
+        <form action="{% url 'pessoas:user_login' %}" method="POST">{% csrf_token %}
+            <input type="text" name="nome" placeholder="Digite seu nome">
+            <input type="password" name="senha" placeholder="Digite sua senha">
+            <button>Enviar</button>
+        </form>
+        <p>Ainda não tem conta? <a href="{% url 'pessoas:user_create' %}">Cadastra-se</a></p>
+        {% if error %}
+        <p style="color: red;">{{error}}
+        </p>
+        {%endif%}
    </div>
+    </div>
 </body>
 </html>

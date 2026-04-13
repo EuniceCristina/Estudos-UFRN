@@ -16,21 +16,53 @@ body{
     border-radius: 20px;
     align-self: center;
     margin-left: 30%;
-    margin-top: 12%;
+    margin-top: 10%;
     background-color: #f6d659;
     
     
 }
 .main h1{
-    color: white;
+    color: #e46f20;
 }
 
-button{
-   border: none;
-   background-color: #f6d659;
-   box-shadow: 0 8px 25px rgba(0,0,0,0.3); 
+
+.form-login {
+    width: 100%;
+}
+.form-login form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    align-items: center;
+}
+.form-login form input, .form-login form button{
+    width: 80%;
+    height: 35px;
+    margin-bottom: 3%;
+    border: NONE;
+    border-radius: 5PX;
+    background-color: rgb(248, 248, 200);
+    box-shadow: 0 8px 25px rgba(58, 58, 58, 0.3); 
+}
+.form-login form button{
+    width: 70%;
+    border: none;
+    background-color: #e46f20;
+    color: white;
+    
+    font-size: large;
+
 }
 button:hover{
     filter: brightness(0.5);
+    padding: 5px;
  
+}
+.main a{
+    color: white;
+    text-decoration: none;
+}
+.main a:hover{
+    font-size: large;
 }
