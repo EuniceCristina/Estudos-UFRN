@@ -1,3 +1,4 @@
+from random import randint
 banco = []
 meses = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro']
 turnos = ['manhã','tarde','noite']
@@ -10,7 +11,8 @@ for i in range(12):
         print(f'Turno da {turnos[t]} - ')
         produtos_1 = []
         for p in range(0,len(produtos)):
-            produto = int(input(f'Digite a quantidade de {produtos[p]}: '))
+            #produto = int(input(f'Digite a quantidade de {produtos[p]}: '))
+            produto = randint(1,54)
             banco[i][t].append(produto)
         
 
