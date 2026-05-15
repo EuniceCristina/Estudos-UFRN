@@ -1,4 +1,5 @@
 print('JOGO DA VELHA')
+from random import randint
 
 jogadas = 1
 jogo = []
@@ -42,32 +43,34 @@ while jogadas <=9:
     if fim:
         print("FIM DE JOGO!")
         if ganhador == 'X':
-            print("O jogador 1 venceu.")
+            print("Você venceu.")
         else:
-            print("O jogador 2 venceu.")
+            print("O computador venceu.")
         break
     
     
     
         
-    if jogadas%2==1:
-        print('Vez do jogador 1!')
-        l = int(input('Digite a linha que deseja jogar:'))
-        c = int(input("Deseja a coluna que deseja jogar:"))
-        if jogo[l][c]=='-':
-            jogo[l][c]='X'
-        else:
-            print("Posição indesponivél. Tente novamente")
-            jogadas-=1
+    print('Sua vez!')
+    l = int(input('Digite a linha que deseja jogar:'))
+    c = int(input("Deseja a coluna que deseja jogar:"))
+    if jogo[l][c]=='-':
+        jogo[l][c]='X'
     else:
-        print('Vez do jogador 2!')
-        l = int(input('Digite a linha que deseja jogar:'))
-        c = int(input("Deseja a coluna que deseja jogar:"))
-        if jogo[l][c]=='-':
-            jogo[l][c]='0'
-        else:
-            print("Posição indesponivél. Tente novamente")
-            jogadas-=1
+        print("Posição indesponivél. Tente novamente")
+        jogadas-=1
+        
+    
+    print('Vez computador!')
+    l = randint(0,2)
+    c = randint(0,2)
+    print(f"""Linha  : {l}\n
+              Coluna : {c}""")
+    if jogo[l][c]=='-':
+        jogo[l][c]='0'
+    else:
+        print("Posição indesponivél. O computador jogará novamente.")
+        jogadas-=1
     
     
     
