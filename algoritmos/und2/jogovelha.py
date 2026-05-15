@@ -56,24 +56,128 @@ while jogadas <=9:
     c = int(input("Deseja a coluna que deseja jogar:"))
     if jogo[l][c]=='-':
         jogo[l][c]='X'
+        jogadas+=1
     else:
         print("Posição indesponivél. Tente novamente")
-        jogadas-=1
+        
         
     
     print('Vez computador!')
-    l = randint(0,2)
-    c = randint(0,2)
-    print(f"""Linha  : {l}\n
-              Coluna : {c}""")
-    if jogo[l][c]=='-':
-        jogo[l][c]='0'
-    else:
-        print("Posição indesponivél. O computador jogará novamente.")
-        jogadas-=1
+    jogou = False
+    
+    for i in range (0,3):
+        for j in range(0,3):
+            if jogo[i][j]=='-':
+                    
+                    jogo[i][j] = '0'
+                    
+                    possibilidades = [
+                    [jogo[0][0], jogo[0][1], jogo[0][2]],
+                    [jogo[1][0], jogo[1][1], jogo[1][2]],
+                    [jogo[2][0], jogo[2][1], jogo[2][2]],
+
+                    [jogo[0][0], jogo[1][0], jogo[2][0]],
+                    [jogo[0][1], jogo[1][1], jogo[2][1]],
+                    [jogo[0][2], jogo[1][2], jogo[2][2]],
+
+                    [jogo[0][0], jogo[1][1], jogo[2][2]],
+                    [jogo[0][2], jogo[1][1], jogo[2][0]]
+                ]
+                    venceu = False
+            
+                    for linha in possibilidades:
+                        if linha[0]==linha[1]==linha[2] and linha[2]=='0':
+                            venceu=True
+                    if venceu:
+                        jogou=True
+                        jogadas+=1
+                        break
+                    else:
+                        jogo[i][j]='-'
+            
+        if jogou:
+            break
+    
+    if not jogou:
+        for i in range (0,3):
+            for j in range(0,3):
+                if jogo[i][j]=='-':
+                    
+                    jogo[i][j] = 'X'
+                    possibilidades = [
+                    [jogo[0][0], jogo[0][1], jogo[0][2]],
+                    [jogo[1][0], jogo[1][1], jogo[1][2]],
+                    [jogo[2][0], jogo[2][1], jogo[2][2]],
+
+                    [jogo[0][0], jogo[1][0], jogo[2][0]],
+                    [jogo[0][1], jogo[1][1], jogo[2][1]],
+                    [jogo[0][2], jogo[1][2], jogo[2][2]],
+
+                    [jogo[0][0], jogo[1][1], jogo[2][2]],
+                    [jogo[0][2], jogo[1][1], jogo[2][0]]
+                ]
+                
+                    venceu = False
+                    for linha in possibilidades:
+                        if linha[0]==linha[1]==linha[2] and linha[2]=='X':
+                            venceu=True
+                    if venceu:
+                        jogo[i][j]='0'
+                        jogou = True
+                        jogadas += 1
+                        break
+                    else:
+                        jogo[i][j]='-'
+            if jogou:
+                
+                break
+            
+    if not jogou:
+        if jogo[1][1]=='-':
+            jogo[1][1]='0'
+            jogou=True
+            jogadas+=1
+            
+    
+    if not jogou:
+        cantos =[
+            [0,0],
+            [0,2],
+            [2,0],
+            [2,2]
+            ] 
+
+        for c in cantos:
+            if jogo[c[0]][c[1]]=='-':
+                jogo[c[0]][c[1]]='0'
+                jogou=True
+                jogadas+=1
+                
+                
+        
+              
+    
+    if not jogou:
+        for i in range (0,3):
+            for j in range(0,3):
+                if jogo[i][j]=='-':
+                    
+                    jogo[i][j] = '0'
+                    jogou=True
+                    break
+            if jogou:
+                jogadas+=1
+                break
+    
+                
+                
+            
+            
     
     
     
-   
     
-    jogadas+=1
+    
+
+    
+    
