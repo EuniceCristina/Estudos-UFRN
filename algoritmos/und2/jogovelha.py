@@ -8,7 +8,7 @@ fim = False
 for i in range(3):
     jogo.append([])
     for j in range(3) :
-        jogo[i].append('-')
+        jogo[i].append('_')
 
 
         
@@ -25,22 +25,26 @@ while jogadas <=10:
         [jogo[0][2],jogo[1][1],jogo[2][0]]
     ]
     
-        
-    print("   0    1    2 ")
+    print()
+    print("     0    1    2 ")
+    print()
     for i in range(0,3):
         
-        print(i,end=' ')
+        print(i,end='   ')
+        
         for j in range(0,3):
             
             print(f' {jogo[i][j]}',end='   ')
+        print()
         print('')
+    print()
     
     if jogadas>9 and fim==False:
         print('\nEmpate!')
         break
     
     for linha in possibilidades:
-        if linha[0]==linha[1]==linha[2] and linha[2]!='-':
+        if linha[0]==linha[1]==linha[2] and linha[2]!='_':
             fim = True
             ganhador=linha[2]
         
@@ -62,7 +66,7 @@ while jogadas <=10:
         print('Sua vez!')
         l = int(input('Digite a linha que deseja jogar:'))
         c = int(input("Deseja a coluna que deseja jogar:"))
-        if jogo[l][c]=='-':
+        if jogo[l][c]=='_':
             jogo[l][c]='X'
             jogadas+=1
             
@@ -78,7 +82,7 @@ while jogadas <=10:
         
         for i in range (0,3):
             for j in range(0,3):
-                if jogo[i][j]=='-':
+                if jogo[i][j]=='_':
                         
                         jogo[i][j] = '0'
                         
@@ -104,7 +108,7 @@ while jogadas <=10:
                             jogadas+=1
                             break
                         else:
-                            jogo[i][j]='-'
+                            jogo[i][j]='_'
                 
             if jogou:
                 break
@@ -112,7 +116,7 @@ while jogadas <=10:
         if not jogou:
             for i in range (0,3):
                 for j in range(0,3):
-                    if jogo[i][j]=='-':
+                    if jogo[i][j]=='_':
                         
                         jogo[i][j] = 'X'
                         possibilidades = [
@@ -138,13 +142,13 @@ while jogadas <=10:
                             jogadas += 1
                             break
                         else:
-                            jogo[i][j]='-'
+                            jogo[i][j]='_'
                 if jogou:
                     
                     break
                 
         if not jogou:
-            if jogo[1][1]=='-':
+            if jogo[1][1]=='_':
                 jogo[1][1]='0'
                 jogou=True
                 jogadas+=1
@@ -159,7 +163,7 @@ while jogadas <=10:
                 ] 
 
             for c in cantos:
-                if jogo[c[0]][c[1]]=='-':
+                if jogo[c[0]][c[1]]=='_':
                     jogo[c[0]][c[1]]='0'
                     jogou=True
                     jogadas+=1
@@ -168,7 +172,7 @@ while jogadas <=10:
         if not jogou:
             for i in range (0,3):
                 for j in range(0,3):
-                    if jogo[i][j]=='-':
+                    if jogo[i][j]=='_':
                         
                         jogo[i][j] = '0'
                         jogou=True
