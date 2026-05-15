@@ -84,7 +84,7 @@ while jogadas <=10:
             for j in range(0,3):
                 if jogo[i][j]=='_':
                         
-                        jogo[i][j] = '0'
+                        jogo[i][j] = 'O'
                         
                         possibilidades = [
                         [jogo[0][0], jogo[0][1], jogo[0][2]],
@@ -101,7 +101,7 @@ while jogadas <=10:
                         venceu = False
                 
                         for linha in possibilidades:
-                            if linha[0]==linha[1]==linha[2] and linha[2]=='0':
+                            if linha[0]==linha[1]==linha[2] and linha[2]=='O':
                                 venceu=True
                         if venceu:
                             jogou=True
@@ -137,7 +137,7 @@ while jogadas <=10:
                             if linha[0]==linha[1]==linha[2] and linha[2]=='X':
                                 venceu=True
                         if venceu:
-                            jogo[i][j]='0'
+                            jogo[i][j]='O'
                             jogou = True
                             jogadas += 1
                             break
@@ -149,7 +149,7 @@ while jogadas <=10:
                 
         if not jogou:
             if jogo[1][1]=='_':
-                jogo[1][1]='0'
+                jogo[1][1]='O'
                 jogou=True
                 jogadas+=1
                 
@@ -164,17 +164,23 @@ while jogadas <=10:
 
             for c in cantos:
                 if jogo[c[0]][c[1]]=='_':
-                    jogo[c[0]][c[1]]='0'
+                    jogo[c[0]][c[1]]='O'
                     jogou=True
                     jogadas+=1
                     break
-
+        
+        #if not jogou:
+            #tranv = [
+                #[0,0],
+                #[2,2]
+            #]
+            
         if not jogou:
             for i in range (0,3):
                 for j in range(0,3):
                     if jogo[i][j]=='_':
                         
-                        jogo[i][j] = '0'
+                        jogo[i][j] = 'O'
                         jogou=True
                         break
                 if jogou:
