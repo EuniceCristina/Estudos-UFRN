@@ -5,7 +5,7 @@ jogadas = 1
 jogo = []
 fim = False
 
-def venceu(jogo, simbolo):
+def teste_venceu(jogo, simbolo):
 
     possibilidades = verificar_prossibilidades(jogo)
 
@@ -257,8 +257,8 @@ while jogadas <=10:
                     if jogo[i][j] == '_':
 
                         jogo[i][j] = 'X'
-
-                        if venceu(jogo, 'X'):
+                        resultado = teste_venceu(jogo, 'X')
+                        if resultado:
 
                             jogo[i][j] = 'O'
                             jogou = True

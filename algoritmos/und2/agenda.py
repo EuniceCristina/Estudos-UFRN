@@ -1,6 +1,6 @@
 agenda = []
 
-start = 'S'
+start = True
 
 while start:
     print("""
@@ -28,8 +28,11 @@ while start:
         agenda.append(contato)
         
     elif opcao == 5:
+        print('\nLista de contatos')
         for contato in agenda:
-            print(f"""\n
+            
+            print(f"""
+                  Contato {agenda.index(contato)+1}
                   Nome :    {contato[0]}
                   Telefone: {contato[1]}
                   Endereço: {contato[2]}
@@ -40,6 +43,7 @@ while start:
         for contato in agenda:
             if nome in contato:
                 print(f"""\n
+                  Contato {agenda.index(contato)+1}
                   Nome :    {contato[0]}
                   Telefone: {contato[1]}
                   Endereço: {contato[2]}
@@ -49,6 +53,7 @@ while start:
             print("\nContato não encontrado na agenda!")
     
     elif opcao == 3:
+        print('\nEditar contato ->')
         nome = input("Digite o nome do contato que deseja editar: ")
         exist=False
         for contato in agenda:
@@ -81,3 +86,5 @@ while start:
     if opcao==6:
         break
     start = input('\nDeseja continuar? [S/N]: ').upper()
+    if start=='N':
+        start=False
