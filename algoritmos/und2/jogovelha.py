@@ -5,6 +5,17 @@ jogadas = 1
 jogo = []
 fim = False
 
+def venceu(jogo, simbolo):
+
+    possibilidades = verificar_prossibilidades(jogo)
+
+    for linha in possibilidades:
+
+        if linha[0] == linha[1] == linha[2] == simbolo:
+            return True
+
+    return False
+
 def verificar_prossibilidades(jogo):
     possibilidades = [
         [jogo[0][0],jogo[0][1],jogo[0][2]],
@@ -153,26 +164,25 @@ while jogadas <=10:
         
         #bloquear fork
         if not jogou:
-            for i in range (0,3):
-                for j in range(0,3):
-                    if jogo[i][j]=='_':
-                        
-                        
-                    
-                        venceu = False
-                        cont = contar_vitorias(jogo,i,j)
-                        
-                        if cont>1:
-                            venceu=True
-                        if venceu:
-                            jogo[i][j]='O'
-                            jogou = True
-                            jogadas += 1
-                            break
-                        
-                if jogou:
-                    
-                    break
+
+            forks = []
+
+            for i in range(3):
+                for j in range(3):
+
+                    if jogo[i][j] == '_':
+
+                        cont = contar_vitorias(jogo, i, j)
+
+                        if cont >= 2:
+                            forks.append([i, j])
+
+            if len(forks) == 1:
+
+                l, c = forks[0]
+                jogo[l][c] = 'O'
+                jogou = True
+                jogadas += 1
         
         
         if not jogou:
@@ -239,6 +249,26 @@ while jogadas <=10:
                 jogou=True
                 jogadas+=1
         
+        if not jogou:
+
+            for i in range(3):
+                for j in range(3):
+
+                    if jogo[i][j] == '_':
+
+                        jogo[i][j] = 'X'
+
+                        if venceu(jogo, 'X'):
+
+                            jogo[i][j] = 'O'
+                            jogou = True
+                            jogadas += 1
+                            break
+
+                        jogo[i][j] = '_'
+
+                if jogou:
+                    break
         
         # pegar lateral
         if not jogou:
