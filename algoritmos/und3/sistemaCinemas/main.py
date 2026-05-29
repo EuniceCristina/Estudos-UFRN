@@ -1,39 +1,131 @@
-#🎬 SISTEMA DE GESTÃO DE CINEMAS
+import os
 
-#├── 👤 Módulo de Usuários
-#├── 🎥 Módulo de Filmes
-#├── 🪑 Módulo de Salas e Assentos
-#├── 🎟️ Módulo de Ingressos
-##├── 📅 Módulo de Sessões
-#├── 🍿 Módulo de Bomboniere
-#├── 💰 Módulo Financeiro
-#├── 📊 Módulo de Relatórios
-#├── ⚙️ Configurações do Sistema
-#├── ℹ️ Sobre o Sistema
-#└── 🚪 Sair
+def usuarios():
+      print("""
+            Menu
+
+            0 - Cadastrar Usuários
+            1 - Listar Usuários
+            2 - Excluir Usuário
+            3 - Editar Usuáro
+            4 - Voltar
+                  
+                  """)
+      opcao = int(input('Digite sua ação: '))
+            
+      
 
 chave = 'S'
-print("#"*30)
-print(
-      """
-Sistema de Gestão de Cinemas
-      """)
-print("#"*30)
+
 
 while chave=='S':
-    print("""
+      os.system('cls' if os.name == 'nt' else 'clear')
+      print("_"*60)
+      print(
+            """
+            MovieSync - Sistema de Gestão de Cinemas
+            """)
+      print("_"*60)
+    
+      print("""
+Menu
+
 0 - Módulo de Usuários
 1 - Módulo de Filmes
-2 - Módulo de Salas e Assentos
-3 - Módulo de Ingressos
-4 - Módulo de Bomboniere
-5 - Módulo Financeiro
-6 - Módulo de Relatórios
-7 - Sobre o Sistema
-8 - Sair
+2 - Módulo de Ingressos
+3 - Módulo de Relatórios
+4 - Sobre o Sistema
+5 - Sair
           
           """)
-    opcao = int(input('Escolha o módulo que deseja acessar. [0-8] :'))
-    
-    if opcao == 8:
-        chave = 'N'
+      opcao = int(input('Escolha o módulo que deseja acessar. [0-8] :'))
+      print()
+
+      if opcao == 5:
+            chave = 'N'
+            print()
+            input("Tecle <ENTER> para continuar...")
+      
+      elif opcao == 0:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("_"*60)
+            print(
+            """
+      Módulo de Usuários
+            """)
+            print("_"*60)
+            print("""
+      Este módulo ainda está
+      em desenvolvimento 
+            
+            """)
+            print()
+            input("Tecle <ENTER> para continuar...")
+      
+      elif opcao == 1:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("_"*60)
+            print(
+                  """
+            Módulo de Filmes
+                  """)
+            print("_"*60)
+            print("""
+            Este módulo ainda está
+            em desenvolvimento 
+                  
+                  """)
+            print()
+            input("Tecle <ENTER> para continuar...")
+      
+      elif opcao == 2:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("_"*60)
+            print(
+                  """
+            Módulo de Ingressos
+                  """)
+            print("_"*60)
+            print("""
+            Este módulo ainda está
+            em desenvolvimento 
+                  
+                  """)
+            print()
+            input("Tecle <ENTER> para continuar...")
+      
+      elif opcao == 3:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("_"*60)
+            print(
+                  """
+            Módulo de Relatórios
+                  """)
+            print("_"*60)
+            print("""
+            Este módulo ainda está
+            em desenvolvimento 
+                  
+                  """)
+            print()
+            input("Tecle <ENTER> para continuar...")
+      
+      elif opcao == 4:
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print("_"*60)
+            print(
+                  """
+            Sobre o Sistema
+                  """)
+            print("_"*60)
+            print("""
+            Projeto de Gestão de um Cinema
+            
+            Equipe de desenvolvimento:     
+                  Eunice Cristina 
+                  @cristinaeunice820@gmail.com
+                    
+                  
+                  """)
+      
+            
