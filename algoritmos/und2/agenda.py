@@ -27,16 +27,6 @@ while start:
         contato = [nome,tel,end]
         agenda.append(contato)
         
-    elif opcao == 5:
-        print('\nLista de contatos')
-        for contato in agenda:
-            
-            print(f"""
-                  Contato {agenda.index(contato)+1}
-                  Nome :    {contato[0]}
-                  Telefone: {contato[1]}
-                  Endereço: {contato[2]}
-                  """)
     elif opcao == 2:
         nome = input("\nDigite o nome que deseja pesquisar: ")
         exist=False
@@ -79,11 +69,18 @@ while start:
                 exist = True
         if not exist:
             print("\nContato não encontrado na agenda!")
-        
+    elif opcao == 5:
+        print('\nLista de contatos')
+        for contato in agenda:
             
-        
-        
-    if opcao==6:
+            print(f"""
+                  Contato {agenda.index(contato)+1}
+                  Nome :    {contato[0]}
+                  Telefone: {contato[1]}
+                  Endereço: {contato[2]}
+                  """)
+          
+    elif opcao==6:
         break
     start = input('\nDeseja continuar? [S/N]: ').upper()
     if start=='N':
