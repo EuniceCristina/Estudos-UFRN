@@ -1,6 +1,10 @@
 import os
+lista_usuarios = []
 
 def usuarios():
+      global lista_usuarios
+      
+      chave = 'S'
       print("""
             Menu
 
@@ -12,6 +16,39 @@ def usuarios():
                   
                   """)
       opcao = int(input('Digite sua ação: '))
+      if opcao == 0:
+            nome = input('Digite o nome do usuario: ')
+            cpf = input('Digite o cpf do usuario : ')
+            email = input('Digite um email do usuário: ')
+            senha = input('Digite uma senha : ')
+            usuario = [nome,cpf,email,senha]
+            lista_usuarios.append(usuario)
+            return print('\nUsuário cadastrado com sucesso!\n')
+      elif opcao == 1 :
+            print(
+            """
+      Lista de usuários
+            """)
+            print("_"*60)
+            print()
+            for usuario in lista_usuarios:
+                  print(f'''
+      Nome : {usuario[0]}
+      Email : {usuario[2]}
+                        ''')
+      
+      elif opcao == 2:
+            nome = input('Digite o nome do usuário que deseja excluir: ')
+            if nome in lista_usuarios:
+                  for usuario in lista_usuarios:
+                        if nome==usuario[0]:
+                              lista_usuarios.remove(usuario)
+            else:
+                  print('Usuário não encontrado!')
+            
+            
+            
+      
             
       
 
@@ -19,7 +56,7 @@ chave = 'S'
 
 
 while chave=='S':
-      os.system('cls' if os.name == 'nt' else 'clear')
+     
       print("_"*60)
       print(
             """
@@ -54,13 +91,9 @@ Menu
       Módulo de Usuários
             """)
             print("_"*60)
-            print("""
-      Este módulo ainda está
-      em desenvolvimento 
             
-            """)
-            print()
-            input("Tecle <ENTER> para continuar...")
+            usuarios()
+            
       
       elif opcao == 1:
             os.system('cls' if os.name == 'nt' else 'clear')
